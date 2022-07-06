@@ -35,7 +35,7 @@ Credentials informations will be send to your email, and displayed at the end of
 
 Hosteur Backup Dashboard is always accessible over TLS at node fqdn like : https://nodexxxx-env-xxxx.rag-cloud.hosteur.com:8443/
 
-![src](srcdoc/Screenshot_20211462.png)
+![src](srcdoc/Screenshot_20211463.png)
 
 >If you open UI at this time you should get error message because you haven't deployed agent yet.
 
@@ -70,7 +70,7 @@ Hosteur Backup Dashboard is always accessible over TLS at node fqdn like : https
 >Agent restore path
 ![src](srcdoc/Screenshot_20211476.png)
 
-Also you get get Restore log on Home UI to keed a look on restoration opérations
+Also you can get *Restore log* at Home UI to keed a look on restoration opérations
 
 ![src](srcdoc/Screenshot_20211474.png)
 
