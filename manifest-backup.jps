@@ -1,7 +1,7 @@
 version: 0.1
 type: update
-id: ragbackup-addon
-name: Hosteur S3 Backup for files
+id: ragbackup-fileagent-addon
+name: Hosteur Backup file agent
 
 categories:
   - apps/dev-and-admin-tools
@@ -37,13 +37,13 @@ targetNodes:
     - lemp
     - llsmp
 
-homepage: https://github.com/hosteur-sa-ch/rag-hosteur-backup
-baseUrl: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup/main
-logo: images/ragbackup.png
+homepage: https://github.com/hosteur-sa-ch/rag-hosteur-backup-fileagent
+baseUrl: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main
+logo: images/logo-hosteur_ico_2021.png
 
 description:
-  text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup/main/text/description.md
-  short: Create files backup on S3 Hosteur Bucket for your environments.\r\n Go to https://www.hosteur.com/business/stockage/bucket to create your account.
+  text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/text/description.md
+  short: Hosteur Backup file agent Addon. Install this addon after Hosteur Backup Dashboard deployment. You can have multiples backup agent on multiples environment's node with same UI.
 
 globals:
   env: ${env.name}
@@ -66,7 +66,7 @@ settings:
     - type: spinner
       name: spretday
       caption: Days of retention
-      min: 1
+      min: 
       max: 30
       increment: 1
       decimalPrecision: ""
@@ -93,7 +93,7 @@ buttons:
     loadingText: Backuping ...
     action: backup
     caption: Backup Now
-    successText: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup/main/text/bksuccess.md
+    successText: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/text/bksuccess.md
   - caption: Configure
     settings: main
     action: configure
@@ -207,7 +207,7 @@ actions:
 
   restic-sudo:
     cmd[${globals.nodeID}]: |-
-      curl -fsS https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup/main/scripts/setsudocmd.sh | /bin/bash
+      curl -fsS https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/scripts/setsudocmd.sh | /bin/bash
     user: root
 
   add-restore-volume:
