@@ -49,8 +49,8 @@ actions:
     addNodes:
     - nodeGroup: hosteur-rag-backup-ui
       dockerName: hosteurdkuser/hosteur-rag-backup
-      fixedCloudlets:1
-      flexibleCloudlets:4
+      fixedCloudlets: 1
+      flexibleCloudlets: 4
       dockerEnvVars:
         RESTICUI_USERNAME: ${globals.UI_USER}
         RESTICUI_PASSWORD: ${globals.UI_PASS}
