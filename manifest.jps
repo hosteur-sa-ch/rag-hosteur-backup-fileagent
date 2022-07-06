@@ -16,7 +16,8 @@ description:
 
 
 success:
-  text: "texts/dashboard-credentials.md"
+  text: /text/dashboard-credentials.md
+  email: /text/dashboard-credentials.md
 
 globals:
   UI_USER: "uiadmin"
@@ -51,6 +52,7 @@ actions:
       dockerName: hosteurdkuser/hosteur-rag-backup
       fixedCloudlets: 1
       flexibleCloudlets: 4
+      skipNodeEmails: true
       dockerEnvVars:
         RESTICUI_USERNAME: ${globals.UI_USER}
         RESTICUI_PASSWORD: ${globals.UI_PASS}

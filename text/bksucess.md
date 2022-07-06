@@ -1,1 +1,1 @@
-Backup was executed with sucess.
+Manual Backup was executed correctly, you can view it as "Manual" on you Backup Dashboard.
