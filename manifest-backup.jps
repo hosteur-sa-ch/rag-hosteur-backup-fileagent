@@ -1,7 +1,7 @@
 version: 0.1
 type: update
 id: ragbackup-fileagent-addon
-name: Hosteur Backup file agent
+name: Hosteur Backup File Agent (Beta)
 
 categories:
   - apps/dev-and-admin-tools

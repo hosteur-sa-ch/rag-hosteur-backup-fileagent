@@ -1,7 +1,7 @@
 version: 0.1
 type: update
 id: ragbackup-ui-addon
-name: Hosteur Backup Dashboard
+name: Hosteur Backup Dashboard (Beta)
 
 categories:
 - apps/dev-and-admin-tools
