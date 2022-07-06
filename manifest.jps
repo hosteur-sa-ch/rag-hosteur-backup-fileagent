@@ -1,4 +1,4 @@
-version: 0.1
+version: 1.0
 type: update
 id: ragbackup-ui-addon
 name: Hosteur Backup Dashboard (Beta)
@@ -12,7 +12,7 @@ logo: images/logo-hosteur_ico_2021.png
 
 description:
   text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/text/description_ui.md
-  short: Create files backup on S3 Hosteur Bucket for your environments.\r\n Go to https://www.hosteur.com/business/stockage/bucket to create S3 your account.
+  short: Hosteur Backup Dashboard Addon. Install this addon to manage backups for the environment.
 
 
 success:
