@@ -1,4 +1,4 @@
-version: 0.1
+version: 1.0
 type: update
 id: ragbackup-fileagent-addon
 name: Hosteur Backup File Agent (Beta)
@@ -14,7 +14,7 @@ logo: images/logo-hosteur_ico_2021.png
 
 description:
   text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/text/description_agent.md
-  short: Hosteur Backup file agent Addon. Install this addon after Hosteur Backup Dashboard deployment. You can have multiples backup agent on multiples environment's node with same UI.
+  short: Hosteur Backup file agent Addon. Install this addon, only after Hosteur Backup Dashboard is installed.
 
 success: Hosteur Backup File Agent is deployed.
 
