@@ -10,6 +10,6 @@
 
 **!! Keep this key to restore backup anytime!!**
 
-The provided credentials can be used to access all agent backup deployed on this environment.
+Those credentials can be used to access all agent backup deployed on this environment.
 
-**Ready now to déploy Hosteur Backup File Agent on node from the Marketplace or from Node's Addons**
+**Ready now to deploy Hosteur Backup File Agent on node from the Marketplace or from Node's Addons**
