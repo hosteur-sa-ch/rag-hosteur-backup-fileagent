@@ -6,36 +6,7 @@ name: Hosteur Backup File Agent (Beta)
 categories:
   - apps/dev-and-admin-tools
 
-targetNodes:
-  nodeType:
-    - tomcat6
-    - tomcat7
-    - tomcat8
-    - tomcat85
-    - tomcat9
-    - tomcat
-    - tomee
-    - tomee-dockerized
-    - glassfish3
-    - glassfish4
-    - glassfish
-    - jetty
-    - jetty6
-    - apache
-    - apache2
-    - nginxphp
-    - apache2-ruby
-    - nginx-ruby
-    - nginx-dockerized
-    - nginxphp-dockerized
-    - nodejs
-    - apache-ruby
-    - apache-python
-    - nginxruby
-    - litespeedphp
-    - litespeedadc
-    - lemp
-    - llsmp
+targetNodes: any
 
 homepage: https://github.com/hosteur-sa-ch/rag-hosteur-backup-fileagent
 baseUrl: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main
@@ -44,6 +15,9 @@ logo: images/logo-hosteur_ico_2021.png
 description:
   text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/text/description_agent.md
   short: Hosteur Backup file agent Addon. Install this addon after Hosteur Backup Dashboard deployment. You can have multiples backup agent on multiples environment's node with same UI.
+
+mixins:
+ - https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/configs/vers.yaml
 
 success: Hosteur Backup File Agent is deployed.
 
@@ -172,11 +146,18 @@ actions:
           targetNodeId : ${globals.nodeID}
           alias : "UI"
 
-  restic-deploy:
+  restic-deploy-yum:
     cmd[${globals.nodeID}]: |-
       yum install yum-plugin-copr -y
       yum copr enable copart/restic -y
       yum install restic -y
+    user: root
+
+  restic-deploy:
+    cmd[${globals.nodeID}]: |-
+      curl -L https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/restic-bin/restic.tar.gz -o /tmp/restic.tar.gz
+      tar -xf /tmp/restic.tar.gz -C /usr/bin/
+      chmod +x /usr/bin/restic
     user: root
 
   restic-init:
