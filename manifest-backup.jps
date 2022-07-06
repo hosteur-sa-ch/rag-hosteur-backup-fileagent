@@ -105,7 +105,6 @@ onInstall:
   - restic-deploy
   - restic-init
   - restic-cron
-  - restic-sudo
   - add-restore-volume-fav
   - add-restore-volume
   - restart-ui
