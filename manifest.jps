@@ -1,0 +1,76 @@
+version: 0.1
+type: update
+id: ragbackup-ui-addon
+name: Web UI for Hosteur S3 Backup
+
+categories:
+- apps/dev-and-admin-tools
+
+homepage: https://github.com/hosteur-sa-ch/rag-hosteur-backup
+baseUrl: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup/main
+logo: images/ragbackup.png
+
+description:
+  text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup/main/text/description.md
+  short: Create files backup on S3 Hosteur Bucket for your environments.\r\n Go to https://www.hosteur.com/business/stockage/bucket to create your account.
+
+settings:
+  fields:
+    - type: string
+      name: resticui_user
+      caption: UI Username
+      required: true
+    - type: string
+      inputType: password
+      name: resticui_pass
+      caption: UI Password
+      required: true
+    - type: string
+      name: s3ak
+      caption: Hosteur S3 Account Key
+      placeholder: Your Hosteur S3 AK
+      required: true
+    - type: string
+      inputType: password
+      name: s3sk
+      caption: Hosteur S3 Secret Key
+      placeholder: Your Hosteur S3 SK
+      required: true
+       
+
+onInstall:
+  - addui
+  - groupDisplayName
+  - addfav
+success: success!!
+
+actions:
+  addui:
+    addNodes:
+    - nodeGroup: hosteur-rag-backup-ui
+      dockerName: hosteurdkuser/hosteur-rag-backup
+      dockerEnvVars:
+        RESTICUI_PASSWORD: ${settings.resticui_pass}
+        RESTICUI_USERNAME: ${settings.resticui_user}
+        AWS_ACCESS_KEY_ID: ${settings.s3ak}
+        AWS_SECRET_ACCESS_KEY: ${settings.s3sk}
+        RESTIC_PASSWORD: ${fn.password(20)}
+        RESTICUI_RESTORE_FOLDER: /backup-restore
+      dockerVolumes:
+        - "/backup-restore"
+
+  groupDisplayName:
+    api:
+      method: environment.control.setnodegroupdisplayname
+      params:
+          envName : ${env.name}
+          nodeGroup: hosteur-rag-backup-ui
+          displayName : "Backup UI"
+  
+  addfav:
+    api:
+      method: environment.file.addfavorite
+      params:
+          envName : ${env.name}
+          nodeGroup: hosteur-rag-backup-ui
+          path : "/backup-restore"
