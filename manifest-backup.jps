@@ -16,9 +16,6 @@ description:
   text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/text/description_agent.md
   short: Hosteur Backup file agent Addon. Install this addon after Hosteur Backup Dashboard deployment. You can have multiples backup agent on multiples environment's node with same UI.
 
-mixins:
- - https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/configs/vers.yaml
-
 success: Hosteur Backup File Agent is deployed.
 
 globals:
@@ -189,8 +186,9 @@ actions:
     user: root
 
   restic-sudo:
-    cmd[${globals.nodeID}]: |-
-      curl -fsS https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/scripts/setsudocmd.sh | /bin/bash
+    if ('${targetNodes.nodeType}' != 'docker' && '${targetNodes.nodeType}' != 'storage'):
+      cmd[${globals.nodeID}]: |-
+        curl -fsS https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/scripts/setsudocmd.sh | /bin/bash
     user: root
 
   add-restore-volume:
@@ -223,8 +221,9 @@ actions:
 
   restic-remove:
     cmd[${globals.nodeID}]: |-
-      yum remove restic -y
+      rm -rf /usr/bin/restic
       rm -rf /root/hosteurbackup.sh
+      rm -rf /usr/bin/hstbk-status
       rm -rf /etc/sudoers.d/hosteur
     user: root
 
@@ -257,6 +256,9 @@ actions:
     cmd[${globals.nodeID}]: |-
       RESTIC_REPOSITORY=$UI_NODE${targetNodes.id}_RESTIC_REPOSITORY RESTIC_PASSWORD=$UI_RESTIC_PASSWORD AWS_ACCESS_KEY_ID=$UI_AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$UI_AWS_SECRET_ACCESS_KEY restic backup --tag Manual $RESTIC_BACKUPPATH
     user: root
+    return:
+      type: success
+      message: Manual Backup is complete, you can view it as "Manual" on you Backup Dashboard.
 
   configure:
     api[${globals.nodeID}]: env.control.AddContainerEnvVars
@@ -277,5 +279,23 @@ actions:
       restic prune >>/var/log/hosteurbackup.log 2>>/var/log/hosteurbackup_err.log
       EOM
       chmod +x /root/hosteurbackup.sh
+      cat > /usr/bin/hstbk-status <<-EOM
+      #!/bin/bash
+      export AWS_ACCESS_KEY_ID=$UI_AWS_ACCESS_KEY_ID
+      export AWS_SECRET_ACCESS_KEY=$UI_AWS_SECRET_ACCESS_KEY
+      export RESTIC_REPOSITORY=$UI_NODE${targetNodes.id}_RESTIC_REPOSITORY
+      export RESTIC_PASSWORD=$UI_RESTIC_PASSWORD
+      export RESTIC_BACKUPPATH=${settings.backuppath}
+      echo "Hosteur Backup Snapshots"
+      echo "----------"
+      restic snapshots
+      echo "Hosteur Backup Statistics"
+      echo "----------"
+      restic stats
+      echo "Hosteur Backup Errors"
+      echo "----------"
+      restic check
+      EOM
+      chmod +x /usr/bin/hstbk-status      
       sed -i 's=.*/root/hosteurbackup.*=${settings.cycle} /root/hosteurbackup.sh=' /var/spool/cron/root
     user: root
