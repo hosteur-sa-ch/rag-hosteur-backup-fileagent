@@ -11,7 +11,7 @@ baseUrl: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-file
 logo: images/logo-hosteur_ico_2021.png
 
 description:
-  text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/text/description.md
+  text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/text/description_ui.md
   short: Create files backup on S3 Hosteur Bucket for your environments.\r\n Go to https://www.hosteur.com/business/stockage/bucket to create S3 your account.
 
 
