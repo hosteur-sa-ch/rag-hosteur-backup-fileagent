@@ -42,8 +42,10 @@ baseUrl: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-file
 logo: images/logo-hosteur_ico_2021.png
 
 description:
-  text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/text/description.md
+  text: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/text/description_agent.md
   short: Hosteur Backup file agent Addon. Install this addon after Hosteur Backup Dashboard deployment. You can have multiples backup agent on multiples environment's node with same UI.
+
+success: Hosteur Backup File Agent is deployed.
 
 globals:
   env: ${env.name}
@@ -136,7 +138,7 @@ onInstall:
   - add-restore-volume-fav
   - add-restore-volume
   - restart-ui
-success: success!!
+
 
 onUninstall:
   - restic-remove
@@ -154,7 +156,7 @@ actions:
     if(${this.UIPresent} == false):
       stopEvent:
         type: error
-        message: Hosteur rag backup UI need to be installed. https://www.exemple.com
+        message: /text/warning_ui.md
 
   adjust-env-vars:
     api[${globals.nodeID}]: env.control.AddContainerEnvVars
