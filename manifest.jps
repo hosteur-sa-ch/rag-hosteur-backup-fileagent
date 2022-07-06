@@ -16,7 +16,7 @@ description:
 
 
 success:
-  text: "../texts/dashboard-credentials.md"
+  text: "texts/dashboard-credentials.md"
 
 globals:
   UI_USER: "uiadmin"
@@ -49,9 +49,11 @@ actions:
     addNodes:
     - nodeGroup: hosteur-rag-backup-ui
       dockerName: hosteurdkuser/hosteur-rag-backup
+      fixedCloudlets:1
+      flexibleCloudlets:4
       dockerEnvVars:
-        RESTICUI_PASSWORD: ${globals.UI_USER}
-        RESTICUI_USERNAME: ${globals.UI_PASS}
+        RESTICUI_USERNAME: ${globals.UI_USER}
+        RESTICUI_PASSWORD: ${globals.UI_PASS}
         AWS_ACCESS_KEY_ID: ${settings.s3ak}
         AWS_SECRET_ACCESS_KEY: ${settings.s3sk}
         RESTIC_PASSWORD: ${globals.BK_KEY}
@@ -65,7 +67,7 @@ actions:
       params:
           envName : ${env.name}
           nodeGroup: hosteur-rag-backup-ui
-          displayName : "Backup UI"
+          displayName : "Hosteur Backup Dashboard"
   
   addfav:
     api:
