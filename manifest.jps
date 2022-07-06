@@ -49,7 +49,7 @@ actions:
   addui:
     addNodes:
     - nodeGroup: hosteur-rag-backup-ui
-      dockerName: hosteurdkuser/hosteur-rag-backup
+      dockerName: hosteurdkuser/hosteur-rag-backup:prod
       fixedCloudlets: 1
       flexibleCloudlets: 4
       skipNodeEmails: true
