@@ -183,6 +183,24 @@ actions:
       EOM
       chmod +x /root/hosteurbackup.sh
       echo "${settings.cycle} /root/hosteurbackup.sh" > /var/spool/cron/root
+      cat > /usr/bin/hstbk-status <<-EOM
+      #!/bin/bash
+      export AWS_ACCESS_KEY_ID=$UI_AWS_ACCESS_KEY_ID
+      export AWS_SECRET_ACCESS_KEY=$UI_AWS_SECRET_ACCESS_KEY
+      export RESTIC_REPOSITORY=$UI_NODE${targetNodes.id}_RESTIC_REPOSITORY
+      export RESTIC_PASSWORD=$UI_RESTIC_PASSWORD
+      export RESTIC_BACKUPPATH=${settings.backuppath}
+      echo "Hosteur Backup Snapshots"
+      echo "----------"
+      restic snapshots
+      echo "Hosteur Backup Statistics"
+      echo "----------"
+      restic stats
+      echo "Hosteur Backup Errors"
+      echo "----------"
+      restic check
+      EOM
+      chmod +x /usr/bin/hstbk-status      
     user: root
 
   restic-sudo:
@@ -279,23 +297,5 @@ actions:
       restic prune >>/var/log/hosteurbackup.log 2>>/var/log/hosteurbackup_err.log
       EOM
       chmod +x /root/hosteurbackup.sh
-      cat > /usr/bin/hstbk-status <<-EOM
-      #!/bin/bash
-      export AWS_ACCESS_KEY_ID=$UI_AWS_ACCESS_KEY_ID
-      export AWS_SECRET_ACCESS_KEY=$UI_AWS_SECRET_ACCESS_KEY
-      export RESTIC_REPOSITORY=$UI_NODE${targetNodes.id}_RESTIC_REPOSITORY
-      export RESTIC_PASSWORD=$UI_RESTIC_PASSWORD
-      export RESTIC_BACKUPPATH=${settings.backuppath}
-      echo "Hosteur Backup Snapshots"
-      echo "----------"
-      restic snapshots
-      echo "Hosteur Backup Statistics"
-      echo "----------"
-      restic stats
-      echo "Hosteur Backup Errors"
-      echo "----------"
-      restic check
-      EOM
-      chmod +x /usr/bin/hstbk-status      
       sed -i 's=.*/root/hosteurbackup.*=${settings.cycle} /root/hosteurbackup.sh=' /var/spool/cron/root
     user: root
