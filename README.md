@@ -20,6 +20,7 @@
 >No Hosteur Bucket Account yet ...
 >Go to [Hosteur](https://www.hosteur.com/business/stockage/bucket) to create your account.
 
+*Hosteur Bucket is a S3 Bucket Service On-Prem from Hosteur, natively replicate between 2 of ours datacenter (France, Switzerland)*
 
 ## Documentation
 
@@ -89,6 +90,7 @@ On SQL Node
 
 >You can installed as many agent you want on any nodes.
 >**Hosteur Backup File Agent** is compatible with all current native node, or docker image with some restriction listed below.
+
 >To be compatible Docker's images should have already deployed :
 >* curl
 >* tar
