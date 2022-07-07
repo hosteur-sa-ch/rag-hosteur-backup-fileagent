@@ -100,10 +100,10 @@ On SQL Node
 
 #### File Agent features
 
-By default File Agent will be backup by snapshots, backup path at 00h00 everyday, keeping 1 days, but you can change it by using **Configure** button on installed Addon from the node. You can find them on UI name **Scheduled**.
+By default File Agent will be backup by snapshots, backup path at 00h00 everyday, keeping 1 days, but you can change it by using **Configure** button on installed Addon from the node. You can find them on UI named as **Scheduled**.
 
 ![src](srcdoc/Screenshot_20211467.png)
 
 ![src](srcdoc/Screenshot_20211468.png)
 
-You can also start a manual backup at any time with the **Backup Now** button. you can find them on UI name **Manual**.
+You can also start a manual backup at any time with the **Backup Now** button. You can find them on UI named as **Manual**.

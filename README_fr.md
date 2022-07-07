@@ -106,4 +106,4 @@ Par défaut File Agent effectura des sauvegarde par snapshots, à 00h00, sur 1 j
 
 ![src](srcdoc/Screenshot_20211468.png)
 
-Vous pouvez aussi effectuer une sauvegarde manuelle avec la fonction **Backup Now**, vous retrouverez ces sauvegarde dans l'interface comme étant **Manual**.
+Vous pouvez aussi effectuer une sauvegarde manuelle avec la fonction **Backup Now**, vous retrouverez ces sauvegardes dans l'interface comme étant **Manual**.
