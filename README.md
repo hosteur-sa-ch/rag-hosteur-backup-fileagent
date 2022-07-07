@@ -1,5 +1,7 @@
 # Hosteur Backup for Ragnarokkr (beta)
 
+>[french version](README_fr.md)
+
 ![nextcloud logo](/images/logo-hosteur_2021.png)
 
 >JPS Package for Hosteur Backup Dashboard
@@ -15,12 +17,12 @@
 
 *You can have multiple Agent on same environment, managed by the same dashboard.*
 
-**Always Install Dashboard Addon before deploying agent.**
+**!! Always Install Hosteur Backup Dashboard Addon before deploying agents !!**
 
 >No Hosteur Bucket Account yet ...
 >Go to [Hosteur](https://www.hosteur.com/business/stockage/bucket) to create your account.
 
-*Hosteur Bucket is a S3 Bucket Service On-Prem from Hosteur, natively replicate between 2 of ours datacenter (France, Switzerland)*
+*Hosteur Bucket is a standard S3 Bucket Service On-Prem from Hosteur, natively replicate between 2 of ours datacenter (France, Switzerland)*
 
 ## Documentation
 
@@ -49,7 +51,7 @@ Hosteur Backup Dashboard is always accessible over TLS at node fqdn like : https
 
 >You can have here 2 types of snapshots, Scheduled or Manual, relative to backup mode.
 
-##### Open Node details, get you snapshots, statistics and a search tool to find a files or forlder from backups.
+##### Open Agent details, get you snapshots, statistics and a search tool to find a files or forlder from backups.
 
 ![src](srcdoc/Screenshot_20211471.png)
 
@@ -71,7 +73,7 @@ Hosteur Backup Dashboard is always accessible over TLS at node fqdn like : https
 >Agent restore path
 ![src](srcdoc/Screenshot_20211476.png)
 
-Also you can get *Restore log* at Home UI to keed a look on restoration opérations
+Also you can get *Restore log* at Home UI to keed a look on restoration opérations.
 
 ![src](srcdoc/Screenshot_20211474.png)
 
@@ -98,7 +100,7 @@ On SQL Node
 
 #### File Agent features
 
-By default File Agent will be backup by snapshots, backup path at 00h00 everyday, keeping X days, but you can change it by using **Configure** button on installed Addon from the node.
+By default File Agent will be backup by snapshots, backup path at 00h00 everyday, keeping 1 days, but you can change it by using **Configure** button on installed Addon from the node. You can find them on UI name **Scheduled**.
 
 ![src](srcdoc/Screenshot_20211467.png)
 
