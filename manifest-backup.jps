@@ -39,7 +39,7 @@ settings:
     - type: spinner
       name: spretday
       caption: Days of retention
-      min: 
+      min: 1
       max: 30
       increment: 1
       decimalPrecision: ""
