@@ -17,7 +17,7 @@
 
 *Vous pouvez installer plusieurs agent par environement, qui seront gérer par le meme Dashboard.*
 
-**!! Toujoues installer l'Addon Hosteur Backup Dashboard avant d'installer des agents !!**
+**!! Toujours installer l'Addon Hosteur Backup Dashboard avant d'installer des agents !!**
 
 >Vous n'avez pas encore de compte Hosteur Bucket ...
 >Rendez-vous [Hosteur](https://www.hosteur.com/business/stockage/bucket) pour créer un compte.
@@ -37,6 +37,8 @@ Depuis la Marketplace choisir l'Addon : Hosteur Backup Dashboard (beta)
 Les informations de connexion vous seront envoyées par email et affichées en fin d'installation.
 
 Hosteur Backup Dashboard est accéssible en TLS depuis le fqdn du node à l'adresse : https://nodexxxx-env-xxxx.rag-cloud.hosteur.com:8443/
+
+>**!! Backup Encryption Keys : Cette clé est la clé d'encryption de vos sauvegarde au format AES-256, cette clé doit être conservé afin de pouvoir exploiter vos sauvegarde, la perte de celle-ci ne permettra plus de les exploiter !!**
 
 ![src](srcdoc/Screenshot_20211463.png)
 
