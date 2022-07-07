@@ -38,6 +38,8 @@ Credentials informations will be send to your email, and displayed at the end of
 
 Hosteur Backup Dashboard is always accessible over TLS at node fqdn like : https://nodexxxx-env-xxxx.rag-cloud.hosteur.com:8443/
 
+>**!! Backup Encryption Keys : this encryption key AES-256 format, is the key for your backups, keep it with caution, if you loose it you wont be able to use your backups anymore !!**
+
 ![src](srcdoc/Screenshot_20211463.png)
 
 >If you open UI at this time you should get error message because you haven't deployed agent yet.
