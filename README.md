@@ -30,7 +30,7 @@
 
 From Marketplace choose Addon : Hosteur Backup Dashboard (beta)
 
-![src](srcdoc/Screenshot_20211462.png)
+![src](srcdoc/Screenshot_20211497.png)
 
 **Type here the S3 credentials of your Hosteur Bucket account and choose the environment you want to backup.**
 
@@ -40,7 +40,7 @@ Hosteur Backup Dashboard is always accessible in TLS from the node fqdn at : htt
 
 >**!! Backup Encryption Keys : This key is the encryption key of your backups in AES-256 format, you must keep it in order to be able to use your backups, the loss of this key will not allow you to use them anymore !!**
 
-![src](srcdoc/Screenshot_20211463.png)
+![src](srcdoc/Screenshot_20211498.png)
 
 >If you open the interface before you have installed an agent you will get an error message indicating this.
 
@@ -85,11 +85,11 @@ From the Marketplace choose the Addon: Hosteur Backup Files Agent (beta)
 
 On a Compute Node (App)
 
-![src](srcdoc/Screenshot_20211465.png)
+![src](srcdoc/Screenshot_20211500.png)
 
 On a SQL Node
 
-![src](srcdoc/Screenshot_20211466.png)
+![src](srcdoc/Screenshot_20211501.png)
 
 
 **Here you need to configure witch path to backup, the backup period (in Cron format, use a generator [here](https://crontab-generator.org/) if needed), then the retention of the backups in days, months, years (set to 0 to disable the retention), the minimal retention should be 1 days, 0 months and 0 years in order to keep only one backup copy per day.**
@@ -106,7 +106,7 @@ On a SQL Node
 
 By default the File Agent will perform snapshot backups, at 00:00, on 1 rolling day, but you can change this using the **Configure** button in the addon. You can find them on the interface named as **Scheduled**.
 
-![src](srcdoc/Screenshot_20211467.png)
+![src](srcdoc/Screenshot_20211502.png)
 
 ![src](srcdoc/Screenshot_20211468.png)
 

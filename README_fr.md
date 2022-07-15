@@ -30,7 +30,7 @@
 
 Depuis la Marketplace choisir l'Addon : Hosteur Backup Dashboard (beta)
 
-![src](srcdoc/Screenshot_20211462.png)
+![src](srcdoc/Screenshot_20211497.png)
 
 **Mettre ici les identifiants S3 de votre compte Hosteur Bucket et choisir l'environnement à sauvegarder.**
 
@@ -40,7 +40,7 @@ Hosteur Backup Dashboard est accéssible en TLS depuis le fqdn du node à l'adre
 
 >**!! Backup Encryption Keys : Cette clé est la clé d'encryption de vos sauvegardes au format AES-256, cette clé doit être conservée afin de pouvoir exploiter vos sauvegardes, la perte de celle-ci ne permettra plus de les exploiter !!**
 
-![src](srcdoc/Screenshot_20211463.png)
+![src](srcdoc/Screenshot_20211498.png)
 
 >Si vous ouvrez l'interface avant d'avoir installé un agent vous obtiendrez un message d'erreur qui l'indiquera.
 
@@ -85,10 +85,10 @@ Depuis la Marketplace choisir l'Addon : Hosteur Backup Files Agent (beta)
 
 Sur un Node Compute (App)
 
-![src](srcdoc/Screenshot_20211465.png)
+![src](srcdoc/Screenshot_20211500.png)
 
 Sur un Node SQL
-![src](srcdoc/Screenshot_20211466.png)
+![src](srcdoc/Screenshot_20211501.png)
 
 **Vous devez ici configurer le chemin à sauvegarder, la periode des sauvegarde (au format Cron [ici](https://crontab-generator.org/) pour un générateur si besoin), puis la retention des sauvegardes en jours, mois, années (mettre à 0 pour désactiver la retention), a minima vous devez mettre 1 jour, 0 mois, 0 année pour conserver une seule sauvegarde par jour**
 
@@ -104,7 +104,7 @@ Sur un Node SQL
 
 Par défaut File Agent effectura des sauvegarde par snapshots, à 00h00, sur 1 jour glissant, mais vous pouvez modifier cela en utilisant la fonction **Configure** dans l'addon. Vous retrouverez les sauvegardes effectuées comme étant **Scheduled** dans l'interface.
 
-![src](srcdoc/Screenshot_20211467.png)
+![src](srcdoc/Screenshot_20211502.png)
 
 ![src](srcdoc/Screenshot_20211468.png)
 
