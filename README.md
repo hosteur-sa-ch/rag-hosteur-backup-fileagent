@@ -91,6 +91,7 @@ On a SQL Node
 
 ![src](srcdoc/Screenshot_20211501.png)
 
+>For SQL Node you need to activate Database Backup first [documentation](https://www.virtuozzo.com/application-platform-docs/database-backups/)
 
 **Here you need to configure witch path to backup, the backup period (in Cron format, use a generator [here](https://crontab-generator.org/) if needed), then the retention of the backups in days, months, years (set to 0 to disable the retention), the minimal retention should be 1 days, 0 months and 0 years in order to keep only one backup copy per day.**
 

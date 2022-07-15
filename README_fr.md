@@ -90,6 +90,8 @@ Sur un Node Compute (App)
 Sur un Node SQL
 ![src](srcdoc/Screenshot_20211501.png)
 
+>Pour les backup de base de donnée, activer le avant de mettre en place l'agent [documentation](https://www.virtuozzo.com/application-platform-docs/database-backups/)
+
 **Vous devez ici configurer le chemin à sauvegarder, la periode des sauvegarde (au format Cron [ici](https://crontab-generator.org/) pour un générateur si besoin), puis la retention des sauvegardes en jours, mois, années (mettre à 0 pour désactiver la retention), a minima vous devez mettre 1 jour, 0 mois, 0 année pour conserver une seule sauvegarde par jour**
 
 >Vous pouvez installer autant d'agents que vous souhaitez par Node de l'environement.
