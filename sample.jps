@@ -1,0 +1,12 @@
+type: update
+name: Execute scripts
+
+script:
+  script: |
+    var url =  '${this.url}';
+    window.open(url, '_blank');
+  params:
+    url: https://www.google.fr
+  type: js
+
+
