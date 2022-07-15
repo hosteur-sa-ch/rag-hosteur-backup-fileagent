@@ -109,7 +109,7 @@ actions:
       var url =  '${this.url}';
       window.open(url, '_blank');
     params:
-      url: https://www.google.fr
+      url: https://node${nodes.hosteur-rag-backup-ui.master.id}-${env.domain}:8443/
     type: js
 
   start-agent-dep:
@@ -119,3 +119,5 @@ actions:
           envName : ${env.name}
           jps: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/manifest-agent.jps
           skipNodeEmails : true
+
+startPage: https://node${nodes.hosteur-rag-backup-ui.master.id}-${env.domain}:8443/
