@@ -8,8 +8,8 @@
 
 **Backup Encryption Key (AES-256)**: ${globals.BK_KEY}
 
-**!! Keep this key to restore backup anytime!!**
+**!! Keep this key to restore your backups at anytime !!**
 
-Those credentials can be used to access all agent backup deployed on this environment.
+These credentials can be used to access all agent backups deployed on this environment.
 
-**Ready now to deploy Hosteur Backup File Agent on node from the Marketplace or from Node's Addons**
+**You are now ready to deploy Hosteur Backup File Agent on a node from the Marketplace or from Node's Addons**
