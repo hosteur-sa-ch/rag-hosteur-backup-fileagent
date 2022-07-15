@@ -45,11 +45,36 @@ onInstall:
   - groupDisplayName
   - addfav
 
+addons:
+  - id: open-dash-url
+    type: update
+    name: Hosteur Backup Dashboard
+    description: Hosteur Backup Dashboard managment.
+    logo: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/images/logo-hosteur_ico_2021.png
+
+    buttons:
+      - caption: Open Dashboard
+        settings: main
+        action: open-dash
+
+  - id: agent-deploy
+    type: update
+    name: Hosteur Backup Agent
+    description: Hosteur Backup Agent deployer.
+    logo: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/images/logo-hosteur_ico_2021.png
+
+    buttons:
+      - caption: Deploy Agent
+        settings: main
+        action: start-agent-dep
+        loadingText: deploying...
+        confirmText: Do you want to deploy new agent?
+        successText:  Agent is successfully deployed!
 actions:
   addui:
     addNodes:
     - nodeGroup: hosteur-rag-backup-ui
-      dockerName: hosteurdkuser/hosteur-rag-backup:prod
+      dockerName: hosteurdkuser/hosteur-rag-backup
       fixedCloudlets: 1
       flexibleCloudlets: 4
       skipNodeEmails: true
@@ -78,3 +103,19 @@ actions:
           envName : ${env.name}
           nodeGroup: hosteur-rag-backup-ui
           path : "/backup-restore"
+
+  open-dash:
+    script : |
+      var url =  '${this.url}';
+      window.open(url, '_blank');
+    params:
+      url: https://www.google.fr
+    type: js
+
+  start-agent-dep:
+    api:
+      method: marketplace.Jps.Install
+      params:
+          envName : ${env.name}
+          jps: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-backup-fileagent/main/manifest-agent.jps
+          skipNodeEmails : true
