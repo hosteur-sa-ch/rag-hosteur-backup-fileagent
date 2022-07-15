@@ -2,27 +2,27 @@
 
 >[french version](README_fr.md)
 
-![nextcloud logo](/images/logo-hosteur_2021.png)
+![hosteur logo](/images/logo-hosteur_2021.png)
 
 >JPS Package for Hosteur Backup Dashboard
 
-## How to install Hosteur Backup for Ragnarokkr
+## How to install Hosteur Backup for Ragnarøkkr
 
-1. Verify if you already have Hosteure Bucket Service, or Go to [Hosteur](https://www.hosteur.com/business/stockage/bucket) to create your account.
-2. Go to your Ragnarokkr [dashboard](https://app.rag-control.hosteur.com/)
-3. From the marketplace search for Addon Hosteur Backup Dashboard
-4. Choose your environment to deploy service to
-5. From the marketplace or directly from nodes, search for Addon Hosteur Backup File Agent and deploy it on node you want to backup files to.
-6. Open your Dashboard (All informations are send by email after installation)
+1. Verify if you already have Hosteur Bucket Service, or Go to [Hosteur](https://www.hosteur.com/business/stockage/bucket) to create your account.
+2. Go to your Ragnarøkkr [dashboard](https://app.rag-control.hosteur.com/)
+3. In the marketplace search for Hosteur Backup Dashboard Addon
+4. Select the environment you want to deploy the service to 
+5. From the marketplace or directly from the nodes look for the Hosteur Backup File Agent Addon and install it on the node you want to backup.
+6. Open your Dashboard (All informations are sent by email after installation)
 
-*You can have multiple Agent on same environment, managed by the same dashboard.*
+
+*You can install several agents per environment, all of which will be managed by the same dashboard.*
 
 **!! Always Install Hosteur Backup Dashboard Addon before deploying agents !!**
 
->No Hosteur Bucket Account yet ...
->Go to [Hosteur](https://www.hosteur.com/business/stockage/bucket) to create your account.
+>You don't have a Hosteur Bucket account yet… Go to [Hosteur](https://www.hosteur.com/business/stockage/bucket) to create your account.
 
-*Hosteur Bucket is a standard S3 Bucket Service On-Prem from Hosteur, natively replicate between 2 of ours datacenter (France, Switzerland)*
+*Hosteur Bucket is a standard Bucket S3 service, hosted by Hosteur and natively replicated on 2 of our Datacenters (France and Switzerland)*
 
 ## Documentation
 
@@ -32,40 +32,40 @@ From Marketplace choose Addon : Hosteur Backup Dashboard (beta)
 
 ![src](srcdoc/Screenshot_20211462.png)
 
-**Here place your Hosteur Bucket S3 credentials, and select the environment to backup**
+**Type here the S3 credentials of your Hosteur Bucket account and choose the environment you want to backup.**
 
-Credentials informations will be send to your email, and displayed at the end of addon's installation.
+>The login information will be sent to you by email and displayed at the end of the installation.
 
-Hosteur Backup Dashboard is always accessible over TLS at node fqdn like : https://nodexxxx-env-xxxx.rag-cloud.hosteur.com:8443/
+Hosteur Backup Dashboard is always accessible in TLS from the node fqdn at : https://nodexxxx-env-xxxx.rag-cloud.hosteur.com:8443/
 
->**!! Backup Encryption Keys : this encryption key AES-256 format, is the key for your backups, keep it with caution, if you loose it you wont be able to use your backups anymore !!**
+>**!! Backup Encryption Keys : This key is the encryption key of your backups in AES-256 format, you must keep it in order to be able to use your backups, the loss of this key will not allow you to use them anymore !!**
 
 ![src](srcdoc/Screenshot_20211463.png)
 
->If you open UI at this time you should get error message because you haven't deployed agent yet.
+>If you open the interface before you have installed an agent you will get an error message indicating this.
 
 
-#### Dashboard UI
+#### Dashboard Interface
 
-##### Home start with all agent list with current snapshots
+##### The home page displays the list of connected agents and the snapshots associated with that agent.
 
 ![src](srcdoc/Screenshot_20211470.png)
 
->You can have here 2 types of snapshots, Scheduled or Manual, relative to backup mode.
+>There are two types of snaphosts, named "Scheduled" or "Manual", corresponding to the type of backup.
 
-##### Open Agent details, get you snapshots, statistics and a search tool to find a files or forlder from backups.
+##### By opening an Agent's details you will see the available snapshots, statistics and a search tool to find file or folder occurrences in your backups.
 
 ![src](srcdoc/Screenshot_20211471.png)
 
-##### Open a snapshots, get you files and folders inside it and a search tool to find a files or forlder from backups.
+##### By opening a snaphot, you will see a list of your backed up files and folders, as well as a search engine to find file and folder occurrences in your backups.
 
 ![src](srcdoc/Screenshot_20211472.png)
 
-##### Search for a file or folder, get all pathes and versions who can be restored.
+##### If you search for a file or folder, you will see a list of occurrences of your search for all files or folders in your backups, by date
 
 ![src](srcdoc/Screenshot_20211477.png)
 
-##### Restore All or Selected, give you choice to restore files, folders on restore_backup path, this path is accessible at de restoration date on UI node and Agents nodes at the same path.
+##### "Restore All" or "Restore Selected", allows you to restore files and folders selected in the backup_restore path, this path is available from the Dashboard node but also on the Agent nodes, you will find a restore date folder containing your backups.
 
 ![src](srcdoc/Screenshot_20211473.png)
 
@@ -75,37 +75,39 @@ Hosteur Backup Dashboard is always accessible over TLS at node fqdn like : https
 >Agent restore path
 ![src](srcdoc/Screenshot_20211476.png)
 
-Also you can get *Restore log* at Home UI to keed a look on restoration opérations.
+You can access the restore logs from the dashboard home page.
 
 ![src](srcdoc/Screenshot_20211474.png)
 
 ### File Agent Installation
 
-From Marketplace choose Addon : Hosteur Backup Files Agent (beta)
+From the Marketplace choose the Addon: Hosteur Backup Files Agent (beta)
 
-On Compute Node
+On a Compute Node (App)
 
 ![src](srcdoc/Screenshot_20211465.png)
 
-On SQL Node
+On a SQL Node
+
 ![src](srcdoc/Screenshot_20211466.png)
 
-**Here you need to configure witch path to backup, when (cron format use generator [here](https://crontab-generator.org/) if you needed to), and backups retention in Days, Months and Years (values can be 0 to disable retention), minimal retention should be 1 days, 0 months, 0 years to keep only one backup copy**
 
->You can installed as many agent you want on any nodes.
->**Hosteur Backup File Agent** is compatible with all current native node, or docker image with some restriction listed below.
+**Here you need to configure witch path to backup, the backup period (in Cron format, use a generator [here](https://crontab-generator.org/) if needed), then the retention of the backups in days, months, years (set to 0 to disable the retention), the minimal retention should be 1 days, 0 months and 0 years in order to keep only one backup copy per day.**
 
->To be compatible Docker's images should have already deployed :
+>You can install as many agents as you want per node in the environment. 
+>**Hosteur Backup File Agent** is compatible with all native nodes of the platform, as well as with Docker images under certain conditions, detailed here.
+
+>For a Docker image to be compatible it must contain at least :
 >* curl
 >* tar
 >* Linux Kernel amd64
 
-#### File Agent features
+#### File Agent Features
 
-By default File Agent will be backup by snapshots, backup path at 00h00 everyday, keeping 1 days, but you can change it by using **Configure** button on installed Addon from the node. You can find them on UI named as **Scheduled**.
+By default the File Agent will perform snapshot backups, at 00:00, on 1 rolling day, but you can change this using the **Configure** button in the addon. You can find them on the interface named as **Scheduled**.
 
 ![src](srcdoc/Screenshot_20211467.png)
 
 ![src](srcdoc/Screenshot_20211468.png)
 
-You can also start a manual backup at any time with the **Backup Now** button. You can find them on UI named as **Manual**.
+You can also start a manual backup at any time with the **Backup Now** button. You can find these backups on the interface named as **Manual**.

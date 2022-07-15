@@ -104,14 +104,6 @@ actions:
           nodeGroup: hosteur-rag-backup-ui
           path : "/backup-restore"
 
-  open-dash:
-    script : |
-      var url =  '${this.url}';
-      window.open(url, '_blank');
-    params:
-      url: https://node${nodes.hosteur-rag-backup-ui.master.id}-${env.domain}:8443/
-    type: js
-
   start-agent-dep:
     api:
       method: marketplace.Jps.Install
